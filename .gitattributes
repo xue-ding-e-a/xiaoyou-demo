@@ -1,0 +1,6 @@
+* -text
+.github/workflows/*.yml text eol=lf
+scripts/*.py text eol=lf
+*.md text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf

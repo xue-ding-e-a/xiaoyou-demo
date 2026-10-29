@@ -1,0 +1,140 @@
+/* New work products use an independent editorial hierarchy (2026-10-29).
+   Public FormCard @216270, ScoreCard @295253 and WindowHeader @555625 were
+   reread for semantics, palette and controls, not used as a chat typography
+   constraint. These rules never target the resume paper or suggestion wizard. */
+:root {
+  --product-font:"IBM Plex Sans","PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --product-title-size:18px;
+  --product-body-size:13px;
+  --product-body-leading:22px;
+  --product-meta-size:12px;
+  --product-meta-leading:18px;
+  --product-radius:16px;
+  --product-inset:20px;
+  --product-gap:16px;
+}
+
+/* A quiet workflow header, one compact disclosure, then the visual product.
+   Every execution row and its inspect action remains in the native disclosure. */
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey]) {
+  margin:20px 0 24px;
+  max-width:672px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  overflow:visible;
+  font-family:var(--product-font);
+  font-size:var(--product-body-size);
+  line-height:var(--product-body-leading);
+}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey])>.combo-run-heading {
+  gap:8px;padding:0 0 8px;border-radius:6px;align-items:flex-start;
+}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey])>.combo-run-heading:hover {background:transparent}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey])>.combo-run-heading:focus-visible {outline:2px solid var(--up-action);outline-offset:4px}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey]) .combo-run-label {gap:4px}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey]) .combo-run-label strong {font-size:12px;line-height:18px;font-weight:500;color:var(--up-muted)}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey]) .combo-current {font-size:12px;line-height:18px;white-space:normal;overflow-wrap:anywhere}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey]) .combo-count {font-size:12px;line-height:18px}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey])>.combo-run-heading>i {margin-top:1px}
+.product-execution-log {margin:0 0 12px;color:var(--up-muted);font-size:12px;line-height:18px}
+.product-execution-log>summary {display:flex;align-items:center;gap:8px;width:fit-content;max-width:100%;padding:4px 0;list-style:none;cursor:pointer;border-radius:4px;transition:color .15s}
+.product-execution-log>summary::-webkit-details-marker {display:none}
+.product-execution-log>summary>i {width:12px;height:12px;transition:transform .15s}
+.product-execution-log[open]>summary>i {transform:rotate(180deg)}
+.product-execution-log>summary:hover {color:var(--up-action)}
+.product-execution-log>summary:active {color:var(--up-action-hover)}
+.product-execution-log>summary:focus-visible {outline:2px solid var(--up-action);outline-offset:3px}
+.product-execution-log>.combo-steps {padding:4px 0 12px!important}
+.product-execution-log .combo-step {padding-top:12px!important}
+.product-execution-log .combo-step-title {align-items:baseline;flex-wrap:wrap;gap:4px 12px}
+.product-execution-log .combo-step-title strong {font-size:13px;line-height:22px;font-weight:500}
+.product-execution-log .combo-step-status,.product-execution-log .combo-step-tools {font-size:12px;line-height:18px}
+.product-execution-log .combo-step-description {font-size:12px!important;line-height:20px!important;margin:4px 0!important}
+.combo-run:is(.campus-run,.flow-run,[data-resume-journey])>.target-job-panel {width:100%;margin:0 0 20px}
+.flow-run>.flow-result-anchor {width:100%;margin:16px 0 0;padding:12px 16px;border-radius:12px;font-size:13px;line-height:22px}
+
+/* Launcher descriptions retain their hierarchy even inside a narrow chat. */
+.scenario-launch-grid {gap:12px}
+.scenario-launch-card {padding:20px!important;gap:8px 12px;border-radius:16px!important;align-content:start}
+.scenario-launch-card>strong {font-family:var(--product-font);font-size:15px;line-height:22px;font-weight:600}
+.scenario-launch-card>span {font-size:13px;line-height:22px}
+.scenario-launch-card>small,.scenario-launch-card>.scenario-launch-meta {font-size:12px;line-height:18px}
+
+/* Explicit typography prevents generic assistant headings/lists changing the
+   JD layout when a product is hosted inside an assistant message. */
+.message.assistant .target-job-section h3 {margin:0 0 12px;font-size:14px;line-height:22px;font-weight:600}
+.message.assistant .target-job-progress-heading h3 {margin:0;font-size:14px;line-height:22px;font-weight:600}
+.message.assistant .target-job-copy {margin:0;padding-left:16px;list-style:disc}
+.message.assistant .target-job-copy li {margin:0;font-size:13px;line-height:22px}
+
+/* Outcome hand-off: explanation first, grouped actions second. */
+.career-flow-result,.campus-result {
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+  margin:20px 0 0;padding:20px;
+  border:1px solid var(--up-border);border-radius:16px;background:var(--up-surface);
+  font-family:var(--product-font);font-size:13px;line-height:22px;
+}
+.career-flow-result>strong,.campus-result>strong {flex:0 0 100%;font-size:14px;font-weight:600;line-height:22px;color:var(--up-ink)}
+.message.assistant .career-flow-result>p,.message.assistant .campus-result>p,.career-flow-result>p,.campus-result>p {flex:0 0 100%;margin:0 0 4px;font-size:13px;line-height:22px;color:var(--up-muted);overflow-wrap:anywhere}
+.career-flow-result>.scenario-button,.campus-result>.scenario-button {min-height:36px;padding:7px 12px;font-size:13px;line-height:22px;white-space:normal;text-align:left}
+
+/* Right result windows share the reading rhythm, with interactive forms and
+   lists separated by whitespace rather than competing small boxed sections. */
+.flow-window .career-views {padding:24px 24px 32px;font-family:var(--product-font);font-size:13px;line-height:22px}
+.flow-window .career-view-header {margin-bottom:24px;gap:12px}
+.flow-window .career-stage {font-size:18px;font-weight:600;line-height:26px}
+.flow-window .career-view-body {gap:20px}
+.flow-window .career-heading h3,.flow-window .career-batch-heading h3 {font-size:14px;line-height:22px;font-weight:600}
+.flow-window .career-job-card {padding:20px;border-radius:16px}
+.flow-window .career-job-names h3 {font-size:16px;line-height:24px;font-weight:600}
+.flow-window .career-job-reason {margin:12px 0 0;font-size:13px;line-height:22px}
+.flow-window .career-helper,.flow-window .career-screen-progress,.flow-window .career-batch-count {font-size:12px;line-height:18px}
+.flow-window .career-job-meta,.flow-window .career-skill-row {row-gap:8px}
+.flow-window .career-batch-job strong {font-size:14px;line-height:22px;font-weight:600}
+.flow-window .career-batch-job>div>span,.flow-window .career-pdf,.flow-window .career-status {font-size:12px;line-height:18px}
+.flow-window .career-result-toolbar {gap:12px;margin-bottom:16px}
+.flow-window .career-evidence {gap:16px;margin-bottom:20px}
+.flow-window .career-evidence-heading {font-size:12px;line-height:18px}
+.flow-window .career-evidence-heading span {font-size:12px;line-height:18px}
+.flow-window .career-evidence-row p {font-size:13px;line-height:22px;margin:8px 0}
+.flow-window .career-apply-job {padding:20px;border-radius:16px}
+.flow-window .career-apply-job h3 {font-size:16px;line-height:24px;font-weight:600}
+.flow-window .career-apply-form {gap:24px}
+.flow-window .career-form-group {padding:16px;border-radius:12px}
+.flow-window .career-form-group legend {font-size:14px;line-height:22px;font-weight:600;padding:0 4px}
+.flow-window .career-form-grid {gap:16px}
+.flow-window .career-form-field>span {font-size:13px;line-height:22px}
+.flow-window .career-form-field>small {font-size:12px;line-height:18px}
+.flow-window .career-form-field input,.flow-window .career-form-field textarea,.flow-window .career-greeting textarea {font-family:var(--product-font);font-size:13px;line-height:22px}
+.flow-window .career-greeting {padding:20px;border-radius:16px}
+.flow-window .career-greeting>label {font-size:14px;line-height:22px;font-weight:600}
+.flow-window .career-view-footer {gap:12px;margin-top:4px;padding-top:20px;font-size:12px;line-height:18px}
+.flow-window .interview-stage {padding:24px}
+.flow-window .interview-stage-status {font-size:18px;line-height:26px;font-weight:600}
+.flow-window .interview-report {padding:24px;border-radius:16px}
+.flow-window .interview-report-heading h2 {font-size:18px;line-height:26px;font-weight:600}
+.flow-window .interview-report-abilities>h3,.flow-window .interview-report-detail>h3,.flow-window .interview-action-plan>h3 {font-size:14px;line-height:22px;font-weight:600}
+.flow-window .interview-question-review,.flow-window .interview-question-review>p,.flow-window .interview-question-review blockquote,.flow-window .interview-action-plan p {font-size:13px;line-height:22px}
+.flow-window .interview-report-ring small,.flow-window .interview-overview-top>div:last-child>small,.flow-window .interview-overview-top p,.flow-window .interview-context {font-size:12px;line-height:18px}
+
+@container chat (width < 560px) {
+  .scenario-launch-card {padding:16px!important;gap:6px 10px}
+  .scenario-launch-card>strong {font-size:14px;line-height:22px}
+  .scenario-launch-card>span {font-size:13px;line-height:22px}
+}
+@container flow-result (max-width:380px) {
+  .flow-window .career-job-card,.flow-window .career-apply-job,.flow-window .career-greeting {padding:16px}
+  .flow-window .career-form-group {padding:12px}
+}
+@media(max-width:760px) {
+  .flow-window .career-views,.flow-window .interview-stage {padding:20px 16px 64px}
+  .flow-window .career-form-field input,.flow-window .career-form-field textarea,.flow-window .career-greeting textarea {font-size:16px}
+  .flow-window .interview-report {padding:20px 16px}
+}
+.flow-chat-products:is([data-stopped=true],[data-frozen=true]) *::before,
+.flow-chat-products:is([data-stopped=true],[data-frozen=true]) *::after {animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce) {
+  .product-execution-log>summary,.product-execution-log>summary>i {transition:none}
+  .flow-chat-products *::before,.flow-chat-products *::after {animation:none!important;transition:none!important}
+}

@@ -1,0 +1,91 @@
+/* Display refinements, 2026-10-28.
+ * Source: upagent-CFN5tJOA.js SuggestSlide @279670, QuickRepliesCard
+ * @314672 and preview toolbar @534354; current official DOM checked.
+ * Keep official surfaces, 10px card corners and 150ms color feedback.
+ * Container-based task layout and explicit Chinese UI fallback are demo
+ * improvements. Resume typography and task state transitions stay separate.
+ */
+body {
+  font-family: "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+
+.welcome p { max-width: 36em; }
+.scenario-launch-card { align-content: start; }
+.scenario-launch-card > strong { font-size: 15px; line-height: 22px; }
+.scenario-launch-card > span { font-size: 13px; line-height: 20px; }
+.scenario-launch-card > small,
+.scenario-launch-card > .scenario-launch-meta { color: var(--up-muted); }
+.scenario-launch-card:active { background: var(--up-surface-active) !important; }
+
+/* Respond to the actual chat column, including sidebar and divider changes. */
+@container chat (width < 560px) {
+  .scenario-launch-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 18px; }
+  .scenario-launch-card { grid-template-columns: 24px minmax(0, 1fr); gap: 3px 10px; padding: 12px 14px !important; }
+  .scenario-launch-card > i { grid-row: 1 / span 2; width: 18px; height: 18px; }
+  .scenario-launch-card > strong { font-size: 14px; line-height: 20px; }
+  .scenario-launch-card > span { font-size: 12px; line-height: 18px; }
+  .scenario-launch-card > small,
+  .scenario-launch-card > .scenario-launch-meta { display: none; }
+  .welcome:has(.scenario-launch-grid) img { width: 64px; height: 64px; }
+  .welcome:has(.scenario-launch-grid) h1 { font-size: 24px; line-height: 32px; margin-top: 12px; }
+  .welcome p { font-size: 13px; line-height: 22px; }
+  .welcome:has(.scenario-launch-grid) { padding-block: 12px; scrollbar-width: thin; scrollbar-color: var(--up-border-strong) transparent; }
+  .welcome:has(.scenario-launch-grid) > div { margin-block: 0; }
+  .quick-actions { gap: 4px; }
+  .demo-pill { margin-left: 0; }
+}
+
+/* Distinguish reading surfaces using existing brand tokens. */
+.composer-box:focus-within { border-color: var(--up-border-strong); box-shadow: 0 0 0 2px var(--up-action-ring); }
+.demo-footnote { color: var(--up-muted); }
+.workspace-header { gap: 6px; }
+.workspace-tab { max-width: min(300px, 100%); }
+.workspace-tab-close { min-width: 24px; height: 24px; margin-right: 2px; }
+.workspace-window-button { border-radius: 8px; }
+.workspace-divider:focus-visible { outline: 2px solid var(--up-action); outline-offset: -2px; border-radius: 4px; }
+.workspace-divider:hover { color: var(--up-action); background: var(--up-action-soft); }
+.resume-export:focus-visible { outline-offset: 2px; }
+.preview-scroll { scroll-padding-top: 64px; }
+
+/* Keep dense task results readable without opening every detail. */
+.scenario-panel-head p,
+.scenario-helper,
+.scenario-reasons,
+.scenario-job-detail p { font-size: 13px; line-height: 22px; }
+.scenario-job-title h4 { font-size: 15px; line-height: 24px; }
+.scenario-job-card { padding: 16px; }
+.combo-step-status,
+.combo-step-tools { color: var(--up-muted); }
+.combo-run-label strong { font-size: 14px; line-height: 22px; font-weight: 500; }
+.combo-step-title strong { font-size: 13px; line-height: 21px; }
+.combo-step-status, .combo-step-tools { font-size: 12px; line-height: 20px; }
+.combo-step-description { line-height: 20px !important; }
+.combo-step-copy { overflow-wrap: anywhere; }
+.combo-run-heading:active { background: var(--up-surface-active); }
+.scenario-filters > .scenario-button[aria-pressed="true"] { font-weight: 500; }
+.scenario-card:focus-within,
+.scenario-job-card:focus-within { border-color: var(--up-border-strong); }
+
+@media (max-height: 700px) and (min-width: 761px) {
+  .has-preview .welcome:has(.scenario-launch-grid) img { width: 48px; height: 48px; }
+  .has-preview .welcome:has(.scenario-launch-grid) h1 { margin-top: 8px; }
+  .has-preview .welcome .scenario-launch-grid { margin-top: 12px; }
+}
+
+@media (max-width: 760px) {
+  .scenario-panel-head p, .scenario-helper, .scenario-reasons, .scenario-job-detail p { font-size: 12px; line-height: 20px; }
+  .scenario-job-card { padding: 12px; }
+  .workspace-tab { max-width: min(260px, 100%); }
+  .has-preview .composer-box:focus-within { box-shadow: 0 0 0 1px var(--up-action-ring); }
+}
+
+/* The host's fixed attribution badge overlaps Send on narrow welcome views.
+ * Reserve its space only when that badge is actually present. */
+@media (max-width: 1100px) {
+  body:has(#nl-badge-frame) .demo-shell:not(.has-preview) .composer-wrap { padding-bottom: 88px; }
+  body:has(#nl-badge-frame) .demo-shell:not(.has-preview) .demo-footnote { bottom: 68px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scenario-launch-card { transition: none; }
+}

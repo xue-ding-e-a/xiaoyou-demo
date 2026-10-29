@@ -1,0 +1,19 @@
+/* Layout extension of the existing official Agent shell. */
+.career-workspace { padding:0!important; overflow:auto; min-width:0; }
+.career-flow-result { display:flex; flex-wrap:wrap; gap:8px; padding:14px; border:1px solid var(--up-border,#e8e7ed); border-radius:12px; background:var(--up-surface,#fff); }
+.career-flow-result>strong,.career-flow-result>p { flex-basis:100%; margin:0; }
+.career-flow-result>p { font-size:13px; line-height:1.7; color:var(--up-muted,#73717e); }
+.career-interview-session { padding:24px; display:grid; gap:18px; max-width:850px; margin:auto; }
+.career-interview-session h2 { font-size:20px; font-weight:600; }
+.career-interview-question { border-left:3px solid #6c5ce7; padding:16px; background:#f5f3ff; border-radius:8px; line-height:1.8; }
+.career-interview-session textarea { width:100%; padding:12px; border:1px solid #dfdce8; border-radius:10px; background:var(--up-surface,#fff); }
+.career-interview-session details { border:1px solid #e8e7ed; border-radius:10px; padding:14px; }
+.career-interview-session details p { white-space:pre-wrap; line-height:1.7; margin-top:10px; }
+/* Keep every final action above the hosting attribution when it is present. */
+body:has(#nl-badge-frame) .career-view-footer { padding-bottom:64px; }
+body:has(#nl-badge-frame) .has-preview .resume-floating-wrap { bottom:64px; }
+@media(max-width:760px) {
+  .career-interview-session { padding:14px; }
+  .career-form-field input,.career-form-field textarea,.career-greeting textarea,.career-interview-session textarea { font-size:16px; }
+}
+@media(prefers-reduced-motion:reduce) { .career-workspace *, .career-pages * { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } }

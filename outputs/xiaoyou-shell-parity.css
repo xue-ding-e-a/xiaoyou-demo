@@ -1,0 +1,101 @@
+/* Source parity fixes. Load after xiaoyou-demo.css.
+ * Sources: work/upcv-assets/upagent-XtFWwWGS.js and index-B8J-P1Dt.js.
+ * Only presentation is changed here; the requested steering and four-page workflow remain intact.
+ */
+
+/* upagent Yx / Jx / Qx: QuickActions uses hostWidth < 480 / < 380,
+ * not viewport width; normal gap-1 px-2.5 py-1 text-[13px], compact size-7. */
+.chat-panel{container-type:inline-size;container-name:chat}
+.quick-action{width:auto;height:auto;justify-content:normal;gap:4px;padding:4px 10px;font-size:13px}
+.quick-action span{display:inline}
+@container chat (width < 480px){
+  .quick-action[data-panel="resume"]{width:28px;height:28px;justify-content:center;padding:0}
+  .quick-action[data-panel="resume"] span{display:none}
+}
+@container chat (width < 380px){
+  .quick-action[data-unavailable="待投清单"]{width:28px;height:28px;justify-content:center;padding:0}
+  .quick-action[data-unavailable="待投清单"] span{display:none}
+}
+
+/* upagent Zk: the chat wrapper is mx-auto w-full max-w-3xl only without
+ * a preview. Kx retains max-w-3xl on the message list, not on the split pane. */
+.has-preview .chat-content{max-width:none}
+
+/* upagent Kx: p-4 @lg/chat:pl-10 @4xl/chat:pl-4.
+ * These override the demo's viewport-based 24px preview inset. */
+.conversation-scroll,.has-preview .conversation-scroll{padding:16px}
+@container conversation (min-width:512px){
+  .conversation-scroll,.has-preview .conversation-scroll{padding-left:40px}
+}
+@container conversation (min-width:896px){
+  .conversation-scroll,.has-preview .conversation-scroll{padding-left:16px}
+}
+
+/* upagent nl (ChatInput): max-h-64 = 256px. The JS resize cap must agree.
+ * The original rows=2 natural height is retained. */
+#input{max-height:256px}
+
+/* upagent yx (ToolCallCard): mb-1 ml-5 max-w-xl rounded-lg px-3 py-2.
+ * The detail has no extra margin above it in the original wrapper. */
+.tool-detail{margin:0 0 4px 20px;padding:8px 12px;max-width:576px}
+
+/* upagent yx: size-3 opacity-0; open rotate-180 opacity-60;
+ * group-hover / group-focus-visible opacity-100. */
+.tool-call>svg:last-child,.tool-call>i:last-child{opacity:0;transition:opacity .15s,transform .15s}
+.tool-call[aria-expanded="true"]>svg:last-child,
+.tool-call[aria-expanded="true"]>i:last-child{opacity:.6;transform:rotate(180deg)}
+.tool-call:hover>svg:last-child,.tool-call:focus-visible>svg:last-child,
+.tool-call:hover>i:last-child,.tool-call:focus-visible>i:last-child{opacity:1}
+
+/* index DPc: sidebar transition-[width] duration-300 ease-out. */
+.demo-sidebar{transition:width .3s ease-out}
+
+/* index DPc: collapsed brand is size-10, logo32 cross-fades to sidebar16
+ * in 150ms. Reuse the already-cached original sidebar SVG in a CSS overlay. */
+.brand-collapsed{position:relative}
+.brand-collapsed>img{transition:opacity .15s}
+.brand-collapsed::after{content:"";position:absolute;inset:12px;opacity:0;background:var(--up-muted);mask:url("upcv-assets/sidebar-simple.svg") center/contain no-repeat;-webkit-mask:url("upcv-assets/sidebar-simple.svg") center/contain no-repeat;transition:opacity .15s;pointer-events:none}
+.brand-collapsed:hover>img{opacity:0}
+.brand-collapsed:hover::after{opacity:1}
+
+/* index DPc: history flex min-h-0 flex-1; header px-4 py-3;
+ * title text-xs font-semibold uppercase tracking-wider; new button size-6.
+ * Current demo has one history item rather than the source's list wrapper. */
+.expanded .history{display:flex;flex-direction:column;min-height:0;padding:0;overflow-y:auto;scrollbar-width:thin}
+.history-label{flex-shrink:0;padding:12px 16px;line-height:16px;letter-spacing:.05em;text-transform:uppercase}
+.history-label>.icon-button{width:24px;height:24px;border-radius:6px}
+.history-label>.icon-button i{width:16px;height:16px}
+.history-item{flex-shrink:0;width:calc(100% - 24px);margin:0 12px 12px}
+
+/* index DPc: collapsed bottom p-2, vertical gap-2, credit text11/leading-none;
+ * avatar outer size-10 rounded-lg, inner size-7 rounded-full. The existing
+ * single button uses a centered 28px circle so its hit area can remain 40px. */
+.demo-shell:not(.expanded) .sidebar-bottom{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px}
+.demo-shell:not(.expanded) .credit-line{margin:0;line-height:1}
+.demo-shell:not(.expanded) .user-avatar{width:40px;height:40px;border-radius:8px;background-color:transparent;background-image:radial-gradient(circle at center,var(--up-action) 14px,transparent 14px);font-size:12px;font-weight:500}
+.demo-shell:not(.expanded) .user-avatar:hover{background-color:var(--up-surface-hover);color:var(--up-on-action)}
+
+/* index DPc: expanded account outer p-3, inner p-2.5, avatar36 and gap12;
+ * credit text-xs/font-medium is below membership text; copyright px16/pb16.
+ * Grid reorders the demo's existing siblings to match that visual structure. */
+.expanded .sidebar-bottom{display:grid;grid-template-columns:36px minmax(0,1fr) 32px;column-gap:12px;padding:22px 22px 0}
+.expanded .account-row{display:contents}
+.expanded .user-avatar{grid-column:1;grid-row:1 / span 2;align-self:center;width:36px;height:36px;font-size:14px;font-weight:500}
+.expanded .account-copy{grid-column:2;grid-row:1;line-height:16px}
+.expanded .account-copy strong{line-height:20px}
+.expanded .credit-line{grid-column:2;grid-row:2;justify-content:flex-start;margin:0;padding:0;font-size:12px;font-weight:500;line-height:16px}
+.expanded .credit-line i{width:11px;height:11px}
+.expanded .account-row>#theme{grid-column:3;grid-row:1 / span 2;align-self:center}
+.expanded .copyright{grid-column:1 / -1;grid-row:3;margin:22px -6px 0;padding:0 0 16px;line-height:15px}
+
+/* upagent zx / Lx: welcome flex-1 flex-col justify-center px-4;
+ * inner mx-auto w-full max-w-3xl; h1 line-clamp-2. */
+.welcome{flex-direction:column;align-items:stretch;justify-content:center;padding:0 16px}
+.welcome>div{max-width:768px;margin:0 auto}
+.welcome h1{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+
+/* index original CSS reduced-motion convention: no decorative transitions. */
+@media(prefers-reduced-motion:reduce){
+  .demo-sidebar,.brand-collapsed>img,.brand-collapsed::after,
+  .tool-call>svg:last-child,.tool-call>i:last-child{transition:none}
+}

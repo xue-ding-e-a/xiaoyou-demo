@@ -1,0 +1,127 @@
+/* Official 40px workspace header and 150ms tab states; content adapted to a
+   540px target window. Conversation motion remains in the left products. */
+.flow-window[hidden]{display:none!important}
+.flow-window.career-workspace{padding:0!important;flex:1;min-height:0;height:100%;overflow-y:auto;overscroll-behavior:contain;background:var(--up-page,#f8f9fb)}
+.flow-window-tab{display:flex;align-items:center;flex-shrink:0;max-width:210px;min-width:0;border-radius:6px;overflow:hidden}
+.flow-window-tab:has([aria-selected=true]){background:var(--up-surface,#fff)}
+.flow-window-tab-button{display:flex;align-items:center;gap:6px;min-width:0;height:32px;padding:6px 8px;border:0;background:transparent;font:inherit;font-size:12px;line-height:20px;color:var(--up-muted,#8a919f);cursor:pointer;transition:background-color .15s,color .15s}
+.flow-window-tab-button[aria-selected=true]{color:var(--up-ink,#282b34);background:var(--up-surface,#fff)}
+.flow-window-tab-button:hover{color:var(--up-ink,#282b34);background:var(--up-surface-hover,#f5f6f8)}
+.flow-tab-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.flow-tab-icon{flex:none;color:var(--up-muted,#8a919f);font-size:14px}
+.flow-window-close{display:flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;margin:0 4px 0 0;padding:0;border:0;border-radius:3px;background:transparent;color:var(--up-muted,#8a919f);font-size:15px;line-height:20px;cursor:pointer;transition:background-color .15s}
+.flow-window-close:hover{background:var(--up-border,#e4e7ec);color:var(--up-ink,#282b34)}
+.flow-window-tab-button:focus-visible,.flow-window-close:focus-visible{outline:2px solid var(--up-action,#4559ff);outline-offset:2px}
+.flow-run>.flow-result-anchor{display:flex;align-items:center;justify-content:space-between;gap:12px;width:calc(100% - 28px);margin:0 14px 14px;padding:13px 16px;border-radius:10px;background:var(--up-action-soft,#f0f3ff);border-color:var(--up-action-ring,#bbc6ff);color:var(--up-action,#4559ff);text-align:left;font-size:13px}
+.flow-run>.flow-result-anchor:after{content:'↗';font-size:17px;flex:none}
+.flow-run>.flow-result-anchor:disabled{opacity:.55;cursor:default}
+.flow-window .career-views{padding:20px 20px 28px;min-height:100%;container-name:flow-result;background:var(--up-page,#f7f8fb);font-family:inherit;color:var(--up-body,#3f4757)}
+.flow-window .career-view-header{margin-bottom:18px;gap:10px;min-height:36px}
+.flow-window .career-up-mark{width:32px;height:32px;flex-basis:32px;border-radius:8px;background:var(--up-action-soft,#eef2ff);color:var(--up-action,#1e4aff)}
+.flow-window .career-up-mark svg{width:23px;height:15px}
+.flow-window .career-complete-mark{font-size:20px}
+.flow-window .career-stage{min-height:32px;padding:4px 0;max-width:calc(100% - 42px);font-size:14px;font-weight:500;line-height:22px;border:0;border-radius:0;background:transparent;box-shadow:none;overflow-wrap:anywhere}
+.flow-window .career-view-body{gap:16px}
+.flow-window .career-job-card{padding:16px;min-height:0;border-radius:10px}
+.flow-window .career-job-top{gap:10px}
+.flow-window .career-job-names h3{font-size:15px;line-height:23px;letter-spacing:0;font-weight:500}
+.flow-window .career-company-mark{width:36px;height:36px;flex-basis:36px;font-size:12px;border-radius:9px}
+.flow-window .career-job-title-line{gap:6px}
+.flow-window .career-job-reason{margin:12px 0 0;font-size:13px;line-height:21px}
+.flow-window .career-results-viewport{max-height:none;overflow:visible;min-height:120px;padding:4px 0 20px;margin:0}
+.flow-window .career-evidence{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:16px}
+.flow-window .career-filter-chips .career-tag{min-height:28px;padding:3px 8px;font-size:12px}
+.flow-window .career-result-toolbar{margin:0 0 12px}
+.flow-window .career-apply-job{padding:16px}
+.flow-window .career-apply-job h3{font-size:16px;line-height:24px}
+.flow-window .career-apply-form{gap:14px}
+.flow-window .career-form-group{padding:12px}
+.flow-window .career-form-grid{gap:10px}
+.flow-window .career-attachment{padding:12px}
+.flow-window .career-view-footer{gap:10px;flex-wrap:wrap}
+.flow-window .career-greeting{padding:18px}
+.flow-window .career-greeting>label{font-size:16px}
+.flow-window .interview-stage{padding:20px}
+.flow-window .interview-stage-content{max-width:100%}
+/* Public FormCard / JobCard typography and restrained interactive surfaces. */
+.flow-window .career-heading h3{font-size:14px;line-height:22px;font-weight:500}
+.flow-window .career-helper,.flow-window .career-screen-progress{font-size:12px;line-height:20px;color:var(--up-muted)}
+.flow-window .career-stage>span{background-image:linear-gradient(100deg,var(--up-ink) 16%,var(--up-faint) 42%,var(--up-ink) 68%)}
+.flow-window .career-view-header[data-complete=true] .career-up-mark{background:var(--up-success-soft);color:var(--up-success)}
+.flow-window .career-score small,.flow-window .career-score.is-half small{font-size:12px;line-height:16px;color:var(--up-muted)}
+.flow-window .career-score.is-half{height:70px}
+.flow-window .career-score-track{stroke:var(--up-divider)}
+.flow-window .career-job-meta .career-tag,.flow-window .career-skill-row .career-tag{font-size:12px;white-space:normal;overflow-wrap:anywhere}
+.flow-window .career-skill-row>span:first-child{font-size:12px;color:var(--up-muted)}
+.flow-window .career-details{padding-bottom:4px}
+.flow-window .career-details>summary{min-height:28px;color:var(--up-muted)}
+.flow-window .career-refine{border-color:var(--up-border);background:var(--up-surface)}
+.flow-window .career-refine>summary{min-height:40px;font-size:13px;color:var(--up-body)}
+.flow-window .career-refine-status,.flow-window .career-refine-field>legend,.flow-window .career-refine-actions>span{font-size:12px;line-height:20px;color:var(--up-muted)}
+.flow-window .career-refine-chip{min-height:30px;padding:4px 8px;border-color:var(--up-border);border-radius:6px;background:var(--up-surface);color:var(--up-body);font-size:12px}
+.flow-window .career-refine-chip:hover{border-color:var(--up-border-strong);background:var(--up-surface-hover);color:var(--up-ink)}
+.flow-window .career-refine-chip[aria-pressed=true]{border-color:var(--up-action-ring);background:var(--up-action-soft);color:var(--up-action)}
+.flow-window .career-refine-chip:active{background:var(--up-surface-active)}
+.flow-window .career-batch-heading h3{font-size:14px;line-height:22px;font-weight:500;color:var(--up-ink)}
+.flow-window .career-batch-count{font-size:12px;color:var(--up-muted)}
+.flow-window .career-table tr{filter:none;box-shadow:none}
+.flow-window .career-table td{background:var(--up-surface)}
+.flow-window .career-batch-job strong{font-size:13px;line-height:20px;color:var(--up-ink)}
+.flow-window .career-batch-job>div>span{font-size:12px;line-height:20px;color:var(--up-muted)}
+.flow-window .career-pdf{font-size:12px;line-height:20px;background:var(--up-surface-hover);color:var(--up-muted);min-height:30px}
+.flow-window .career-pdf>span{white-space:normal;overflow-wrap:anywhere}
+.flow-window .career-status{font-size:12px;line-height:20px;color:var(--up-muted)}
+.flow-window .career-status[data-state=ready]{color:var(--up-body)}
+.flow-window .career-status[data-state=working]{color:var(--up-action)}
+.flow-window .career-form-group{border-color:var(--up-border);border-radius:10px;background:var(--up-surface)}
+.flow-window .career-form-group legend{font-size:14px;font-weight:500;color:var(--up-ink)}
+.flow-window .career-form-field>span{color:var(--up-body)}
+.flow-window .career-form-field>small{font-size:12px;line-height:19px;color:var(--up-muted)}
+.flow-window .career-form-field[data-active=true]{background:var(--up-action-soft);border-color:var(--up-action-ring)}
+.flow-window .career-form-field input,.flow-window .career-form-field textarea,.flow-window .career-greeting textarea{min-height:40px;border-color:var(--up-border);background:var(--up-surface);color:var(--up-body);font-size:14px;line-height:22px}
+.flow-window .career-form-field input:focus,.flow-window .career-form-field textarea:focus,.flow-window .career-greeting textarea:focus{border-color:var(--up-action);box-shadow:0 0 0 2px var(--up-action-ring)}
+.flow-window .career-form-field input[aria-invalid=true],.flow-window .career-form-field textarea[aria-invalid=true]{border-color:var(--up-error)}
+.flow-window .career-form-field .career-field-error{color:var(--up-error)}
+.flow-window .career-view-footer{justify-content:flex-start;gap:10px;padding-top:14px;margin-top:4px;border-top:1px solid var(--up-divider);color:var(--up-muted)}
+.flow-window .career-view-footer>.is-primary{min-height:36px;padding:7px 14px;border-radius:8px}
+.flow-run>.flow-result-anchor{white-space:normal;line-height:21px;background:var(--up-surface);color:var(--up-body);border-color:var(--up-border);font-weight:500}
+.flow-run>.flow-result-anchor:hover:enabled{background:var(--up-surface-hover);border-color:var(--up-border-strong);color:var(--up-ink)}
+.flow-run>.flow-result-anchor:active:enabled{background:var(--up-surface-active)}
+.flow-run>.flow-result-anchor:focus-visible{outline:2px solid var(--up-action);outline-offset:2px}
+.flow-run>.flow-result-anchor::after{color:var(--up-faint)}
+/* The interview uses the same right window, while retaining its waveform. */
+.flow-window .interview-stage{min-height:100%;background:var(--up-page)}
+.flow-window .interview-stage-header{gap:10px;min-height:36px}
+.flow-window .interview-up{width:32px;height:32px;border-radius:8px;font-size:18px;background:var(--up-action-soft);color:var(--up-action)}
+.flow-window .interview-stage-status{min-height:32px;padding:4px 0;border:0;border-radius:0;box-shadow:none;background:transparent;font-size:14px;line-height:22px;font-weight:500}
+.flow-window .interview-stage[data-phase=report] .interview-up{background:var(--up-success-soft);color:var(--up-success);font-size:22px}
+.flow-window .interview-mode-note,.flow-window .interview-answer-count,.flow-window .interview-button.interview-back{font-size:12px;color:var(--up-muted)}
+.flow-window .interview-question-scene{margin-top:32px}
+.flow-window .interview-question{font-size:17px;line-height:1.7;font-weight:500;overflow-wrap:anywhere}
+.flow-window .interview-speaker-avatar{background:var(--up-action);box-shadow:none}
+.flow-window .interview-wave>span{background:var(--up-action)}
+.flow-window .interview-answer-row{border:1px solid var(--up-border);border-radius:10px;background:var(--up-surface)}
+.flow-window .interview-button.is-primary{background:var(--up-action);border-color:var(--up-action)}
+.flow-window .interview-button.is-primary:hover{background:var(--up-action-hover);border-color:var(--up-action-hover)}
+.flow-window .interview-report{margin-top:28px;padding:20px 16px;border:1px solid var(--up-border);border-radius:10px;box-shadow:none;background:var(--up-surface)}
+.flow-window .interview-report-heading h2{font-size:16px;line-height:24px;font-weight:500}
+.flow-window .interview-report-heading p,.flow-window .interview-report-heading>span,.flow-window .interview-report-explanation,.flow-window .interview-question-review,.flow-window .interview-question-review>p,.flow-window .interview-question-review blockquote,.flow-window .interview-action-plan p,.flow-window .interview-scoring-rules{font-size:12px;line-height:20px;color:var(--up-muted)}
+.flow-window .interview-report-abilities>h3,.flow-window .interview-report-detail>h3,.flow-window .interview-action-plan>h3{font-size:13px;line-height:20px;color:var(--up-body)}
+@container flow-result (max-width:550px){
+ .flow-window .career-job-top{flex-wrap:wrap}
+ .flow-window .career-job-names{flex:1;min-width:150px}
+ .flow-window .career-score.is-half{margin-left:auto}
+ .flow-window .career-evidence{grid-template-columns:minmax(0,1fr)}
+ .flow-window .career-form-grid{grid-template-columns:minmax(0,1fr)}
+ .flow-window .career-search-top{flex-wrap:wrap}
+ .flow-window .career-table,.flow-window .career-table tbody,.flow-window .career-table tr,.flow-window .career-table td{display:block;width:100%!important}
+ .flow-window .career-table tr{border-radius:10px;background:var(--up-surface,#fff);margin-bottom:12px;padding:10px;border:1px solid var(--up-border,#e4e7ec)}
+ .flow-window .career-table td{height:auto;padding:5px 4px!important;border-radius:0!important;background:transparent!important}
+ .flow-window .career-table td:nth-child(3),.flow-window .career-table td:nth-child(4){display:inline-block;width:auto!important;margin-right:12px}
+ .flow-window .career-table td:nth-child(5){display:none}
+ .flow-window .career-views[data-phase=submit] .career-table td:nth-child(5){display:block}
+ .flow-window .career-batch-job>div{white-space:normal;flex-wrap:wrap;column-gap:4px}
+ .flow-window .career-batch-job strong,.flow-window .career-batch-job>div>span{white-space:normal}
+}
+@media(max-width:760px){.flow-window .career-views{padding:14px 12px 64px}.flow-window-tab{max-width:160px}.flow-window .interview-stage{padding:14px 12px 64px}.flow-window .career-form-field input,.flow-window .career-form-field textarea,.flow-window .career-greeting textarea,.flow-window .interview-answer-form textarea{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.flow-window *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

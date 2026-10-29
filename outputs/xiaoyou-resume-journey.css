@@ -1,0 +1,28 @@
+/* New scenario grouping built from original SuggestSlide / QuickRepliesCard
+   surfaces and ToolCallCard details. It does not replace the four-page wizard. */
+.resume-evidence{margin:0 0 12px;border:1px solid var(--up-border);border-radius:8px;background:var(--up-surface);font-size:12px;line-height:1.6}
+.resume-evidence>summary,.resume-edit-result summary{cursor:pointer;padding:10px 12px;color:var(--up-body);font-weight:500;transition:background-color .15s}
+.resume-evidence>summary:hover,.resume-edit-result summary:hover{background:var(--up-surface-hover)}
+.resume-evidence>summary:focus-visible,.resume-edit-result summary:focus-visible{outline:2px solid var(--up-action);outline-offset:2px}
+.resume-evidence-context{padding:0 12px 10px;color:var(--up-muted);font-size:12px}
+.resume-evidence table{width:calc(100% - 24px);margin:0 12px 12px;table-layout:fixed;border-collapse:collapse}
+.resume-evidence th,.resume-evidence td{border-bottom:1px solid var(--up-divider);text-align:left;vertical-align:top;padding:8px 6px;overflow-wrap:anywhere}
+.resume-evidence th{font-weight:500;color:var(--up-muted)}
+.resume-evidence th:first-child{width:22%}
+.resume-evidence-action{display:block;width:fit-content;margin-top:8px;padding:2px 0;border:0;background:transparent;color:var(--up-action);font-size:12px;line-height:18px;text-align:left;cursor:pointer;transition:color .15s}
+.resume-evidence-action:hover{color:var(--up-action-hover);text-decoration:underline;text-underline-offset:3px}
+.resume-evidence-action:focus-visible{outline:2px solid var(--up-action);outline-offset:3px;border-radius:2px}
+.resume-change-purpose{font-size:12px;line-height:1.6;color:var(--up-muted);margin:0 0 6px}
+.resume-edit-result{border:1px solid var(--up-border);border-radius:10px;padding:16px;background:var(--up-surface);font-size:13px;line-height:1.6}
+.resume-edit-result>p{margin:0 0 12px;font-weight:500;color:var(--up-ink)}
+.resume-edit-result ul{list-style:none;padding:0;margin:0}
+.resume-edit-result li{padding:10px 0;border-top:1px solid var(--up-divider)}
+.resume-edit-result li strong{font-size:12px;font-weight:500;display:block;color:var(--up-muted);margin-bottom:4px}
+.resume-edit-result li span{white-space:pre-wrap}
+.resume-edit-result details{margin-top:12px;border-top:1px solid var(--up-divider)}
+.resume-edit-result summary{padding:10px 0}
+.resume-edit-result details p{font-size:12px;color:var(--up-muted);margin:0}
+.scenario-pending-request{padding:12px;border:1px solid var(--up-border);border-radius:8px;background:var(--up-surface);margin:12px 0;font-size:13px}
+.scenario-pending-request p{margin:0 0 8px}
+.queue-steer:disabled{opacity:.35;cursor:not-allowed}
+@media(max-width:760px){.resume-evidence table{font-size:11px}.resume-evidence th,.resume-evidence td{padding:6px 3px}}

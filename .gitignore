@@ -1,0 +1,34 @@
+# Default-deny: only reviewed static sources and deployment configuration enter Git.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/DEPLOYMENT.md
+!/.github/
+/.github/*
+!/.github/workflows/
+/.github/workflows/*
+!/.github/workflows/deploy.yml
+!/scripts/
+/scripts/*
+!/scripts/prepare-site.py
+!/scripts/package-site.py
+!/outputs/
+/outputs/*
+!/outputs/xiaoyou-*.html
+!/outputs/xiaoyou-*.css
+!/outputs/xiaoyou-*.js
+!/outputs/README.md
+!/outputs/SOURCE-PARITY.md
+!/outputs/INTERACTION-PARITY.md
+!/outputs/SCENARIO-DESIGN.md
+!/outputs/upcv-assets/
+
+# Never include credentials, login screenshots, archives or local caches.
+**/.env
+**/.env.*
+**/*login-qr*
+**/*.zip
+**/node_modules/
+**/__pycache__/
+**/.DS_Store
