@@ -1,5 +1,20 @@
 # 展开、点击与动效逐项修正
 
+## 2026-10-29：GitHub Pages 已免费上线（当前发布）
+
+网站：https://xue-ding-e-a.github.io/xiaoyou-demo/  
+公开仓库：https://github.com/xue-ding-e-a/xiaoyou-demo  
+成功工作流：https://github.com/xue-ding-e-a/xiaoyou-demo/actions/runs/40841879825
+
+当前部署提交为 `b3fe736e164026cef8cd91814b1d6735eedbc051`。GitHub Actions于2026-10-29 16:24:55（Asia/Shanghai）完成首次发布，官方工作流为completed/success。本轮匿名核对47项资源：首页、兼容入口、清单、全部JS/CSS及标志的字节和SHA-256与本地site一致；35 MB楷体核对HEAD的HTTP200及完整Content-Length，未核对线上整字体哈希。构建tree为 `a388a0f0bbabb0b45ee9734b4642b474a00d2941c349b3a51e997deb3337c8d7`。本轮为HTTP和文件核验，未进行浏览器布局或逐帧动画验收。
+
+推送main中的页面或部署配置后，`.github/workflows/deploy.yml` 自动构建、校验并更新同一网址；也可在Actions手动Run workflow。工作流采用官方checkout、configure-pages、upload-pages-artifact和deploy-pages，Python 3.12运行 `scripts/prepare-site.py`。此次发布含最新新增卡片的独立排版与折叠执行记录，使用原始完整字体。既有185项交互检查对应同一运行时代码，本轮未修改UI或业务脚本。
+
+仓库首批仅258个审核文件。work缓存、登录材料、凭据、源视频、真实截图、ZIP及site构建产物均未提交。复用了Windows Git Credential Manager中已有的GitHub登录，令牌仅通过子进程环境内存使用，不写入项目。GitHub源码包为 `outputs/xiaoyou-demo-github.zip`，包含完整部署工作流；常规源码包和交付说明也已同步更新。工作区发布证据为 `work/github-pages-release.json` 与 `work/github-pages-http-check.json`。
+
+以下为历史配置/发布记录，早前Netlify额度阻碍及Cloudflare未发布状态不代表当前GitHub Pages状态。
+
+
 ## 2026-10-29：改用 GitHub Pages 免费托管（配置已准备）
 
 新增 `.github/workflows/deploy.yml`：推送main后，GitHub Actions使用Python 3.12运行 `scripts/prepare-site.py`，按白名单构建并核对本地资源，上传site产物，再由官方Pages Action部署。也可在Actions页面手动触发。工作流仅请求contents读取、pages写入和OIDC身份权限。
